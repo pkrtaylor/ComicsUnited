@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 
 
-const Results = ({profile}) => {
+const Results = ({profile:{results}}) => {
+    
+    console.log(results)
     return (
         <div>
             Hello

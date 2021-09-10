@@ -21,12 +21,7 @@ const Cards = () => {
                     label='Marvel'
                     path='/marvel'
                     />
-                     <CardItem 
-                    src='/images/DarkHorse.jpg'
-                    text={`Let me guess... you're just different?`}
-                    label='Dark Horse'
-                    path='/darkhorse'
-                    />
+               
                 </ul>
 
             </div>

@@ -29,7 +29,7 @@ const Marvel = ({getResults}) => {
             <form className=''onSubmit ={e => onSubmit(e)}>
                 <input type="text" placeholder=" Name" name="name" value={name} onChange={onChange} />
                 
-                <Link to='/results'><input type="submit" /></Link> 
+                <input type="submit" /> 
               
             </form>
         </div>
