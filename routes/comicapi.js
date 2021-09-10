@@ -15,7 +15,7 @@ router.get('/:name',(req,res) => {
           method: 'GET'
      
       };  
-
+      console.log(options.uri);
       request(options, (error, response, body) =>{
           if(error){
               console.error(error);

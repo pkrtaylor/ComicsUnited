@@ -8,7 +8,7 @@ const Marvel = ({getResults}) => {
 
     const [formData, setFormData] = useState(
         {
-            name:' '
+            name:''
         }
     );
     
@@ -28,8 +28,9 @@ const Marvel = ({getResults}) => {
             <video src='/videos/CapAm.mp4' autoPlay loop muted />
             <form className=''onSubmit ={e => onSubmit(e)}>
                 <input type="text" placeholder=" Name" name="name" value={name} onChange={onChange} />
-                <input type="submit" />
-                <Link to='/'/>
+                
+                <Link to='/results'><input type="submit" /></Link> 
+              
             </form>
         </div>
    
