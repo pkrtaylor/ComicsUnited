@@ -1,35 +1,28 @@
-import React, {useState} from 'react'
+import React, { useContext} from 'react'
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
-import {getResults} from '../../actions/profile'
+import {CharContext} from '../../context/CharContext'
 
-const Marvel = ({getResults}) => {
+const Marvel = () => {
 
-    const [formData, setFormData] = useState(
-        {
-            name:''
-        }
-    );
-    
-    const { name } = formData;
 
-    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value})
+  
+    const {setName} = useContext(CharContext)
 
-    const onSubmit = e =>{
-        e.preventDefault();
-        
-        getResults(formData);
-       
-    }
+  
     return (
        
         <div className='hero-container'>
             <video src='/videos/CapAm.mp4' autoPlay loop muted />
-            <form className=''onSubmit ={e => onSubmit(e)}>
-                <input type="text" placeholder=" Name" name="name" value={name} onChange={onChange} />
+            <form className=''>
+                <input 
+                type="text" 
+                placeholder=" Name" 
+                name="name"  
+                onChange={(event) => {
+                    setName(event.target.value)
+                }} />
                 
-                <input type="submit" /> 
+                <Link to='/results'><input type="submit" /> </Link>
               
             </form>
         </div>
@@ -38,16 +31,9 @@ const Marvel = ({getResults}) => {
 }
 
 
-Marvel.propTypes= {
-    getResults: PropTypes.func.isRequired,
-    profile: PropTypes.object.isRequired
-}
 
-const mapStateToProps= state =>({
-    profile: state.profile
-})
 
-export default connect(mapStateToProps, {getResults})(Marvel)
+export default Marvel
 
 
 

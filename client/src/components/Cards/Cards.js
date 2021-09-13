@@ -1,6 +1,7 @@
 import React from 'react'
 import CardItem from './CardItem'
 import './Cards.css'
+import spinner from '../Spinner/Spinner-3.gif'
 
 const Cards = () => {
     return (
@@ -21,7 +22,12 @@ const Cards = () => {
                     label='Marvel'
                     path='/marvel'
                     />
-               
+                     <CardItem 
+                    src={spinner}
+                    text={`Let me guess... you're just different?`}
+                    label='Dark Horse'
+                    path='/darkhorse'
+                    />
                 </ul>
 
             </div>
