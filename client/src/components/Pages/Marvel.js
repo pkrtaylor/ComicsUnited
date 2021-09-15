@@ -5,7 +5,7 @@ import {CharContext} from '../../context/CharContext'
 const Marvel = () => {
 
 
-  
+   
     const {setName} = useContext(CharContext)
 
   

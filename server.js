@@ -14,7 +14,7 @@ app.use(cors())
 
 //define routes
 
-app.use('/comicapi/results', require('./routes/comicapi'))
+app.use('/comicapi', require('./routes/comicapi'))
 
 
 // then we take the app varibale and want to listen on a port 

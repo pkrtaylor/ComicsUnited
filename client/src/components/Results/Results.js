@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {CharContext} from '../../context/CharContext'
+import {Link} from 'react-router-dom'
 import Spinner from '../Spinner/Spinner'
 import './Results.scss'
 
@@ -13,55 +14,56 @@ import './Results.scss'
 
 const Results = () => {
 
-    
-    const [data, setData]= useState({});
-    const[loading, setLoading] = useState(false);
+    const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [superList, setSuperList]=useState({});
-    
     const { name } = useContext(CharContext);
-    console.log(name);
-    
+   
     useEffect(() => {
-        async function getResults(){
-            setLoading(true);
-        
-            await axios.get(`/comicapi/results/${name}`)
-            .then((response) => {
-                setData(response.data);
-            })
-            .catch((err) =>{
-                setError(err);
-            })
-            .finally(() =>{
-                setLoading(false);
-                });
-        
-        }
-        getResults();
-        setSuperList(data.results);
-    }
-    , [name]);
-    console.log(superList);
-    
+      axios
+        .get(`/comicapi/results/${name}`)
+        .then(({ data }) => {
+          setData(data);
+        })
+        .catch(setError);
+    }, [name]);
    
-
+    console.log(data?.results);
+    
+    
 
    
-    
-    
-    
+    if(data?.error) return <h1>{data.error}</h1>;
+
   
-    
    
- 
-    
-    return loading ? <Spinner /> : (
-        <div className='container'>
-          Hello
+    if (error) return <h1>There was an error.. {error.error}</h1>;
+   
+   
+    if (!data) return <Spinner />;
+   
+    return (
+      <div className="container">
+          
+          <h3>Results for desired character...</h3>
+          <div className='main_content'>
+        {data.results.map(({ id, name, image, biography }) => (
+          <div className='card' key={id} id={id}>
+          <Link to={`/result/${id}`}>
+          <div className='card_img'>
+              <img src={image['url']} />
+          </div>
+          <div className='card_header'>
+              <h2>{name}</h2>
+              <p>{biography['full-name']}</p>
+          </div>
+          </Link>
+      </div>
+        ))}
         </div>
-        )
-}
+      </div>
+      
+    );
+  };
 
 
 /*

@@ -34,8 +34,8 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/darkhorse' className='nav-links' onClick={closeMobileMenu}>
-                            Dark Horse
+                            <Link to='/omniverse' className='nav-links' onClick={closeMobileMenu}>
+                            Omniverse
                             </Link>
                         </li>
                     </ul>

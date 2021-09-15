@@ -8,7 +8,7 @@ const Home = () => {
     const [ p, setP]=useState('Learn about your favorite comic book characters here.');
     return (
         <>
-            <Landing src='/videos/JL.MOV' h1 ={h1} p={p}/>
+            <Landing h1 ={h1} p={p}/>
             <Cards />
         </>
     )
