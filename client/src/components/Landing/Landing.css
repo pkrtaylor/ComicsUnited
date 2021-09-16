@@ -6,9 +6,16 @@ video {
   z-index: -1; /*set to -1 so that we ensure its not covering any of our other stuff */
 }
 
+.img1 {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed; /* so that it stays in its spot  */
+  z-index: -1; /*set to -1 so that we ensure its not covering any of our other stuff */
+}
+
 .hero-container {
   /* this is where we put our image*/
-
   height: 100vh;
   width: 100%;
   display: flex;

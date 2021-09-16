@@ -8,21 +8,20 @@ import axios from 'axios'
 
 const Result = ({match}) => {
     
-    const [charId, setChardId]=useState(null);
     
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
 
-    setChardId(match.params.id);
-    console.log(charId);
+    
+   
     useEffect(() => {
         axios
-          .get(`/comicapi/character/${charId}`)
+          .get(`/comicapi/character/${match.params.id}`)
           .then(({ data }) => {
             setData(data);
           })
           .catch(setError);
-      }, [charId]);
+      }, [match.params.id]);
 
     console.log(data?.results);
 
@@ -35,9 +34,7 @@ const Result = ({match}) => {
    
     if (!data) return <Spinner />;
     return (
-        <div className='container'>
-        <h1>{data?.name} a.k.a {data?.biography['full-name']}</h1>
-        </div>
+       <ProfileModal data={data}  />
     )
 }
 
