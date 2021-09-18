@@ -12,12 +12,16 @@ cd ComicsUnited-main
 npm install
 
 ```
-Next head into the client directory, after all dependencies are install the last command will start up the application.
+Next head into the client directory
 
 ```
 cd client 
 
 npm install
 
-run npm dev
+```
+Go back to the main directory - ComicsUnited-main and run the final command, which will start up the web application.
+
+```
+npm run dev
 ```
